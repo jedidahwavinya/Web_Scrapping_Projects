@@ -1,0 +1,70 @@
+
+# Selectors for Booking.com (list page) - NOTE: these are approximate and may need adjusting.
+list:
+  hotels:
+    css: "div[data-testid='property-card']"
+    type: list
+    children:
+      name:
+        css: "div[data-testid='title']"
+        xpath: null
+        type: text
+      url:
+        css: "a[data-testid='title-link']"
+        type: attribute
+        attribute: href
+      rating:
+        css: "div[aria-label*='Scored']"
+        type: text
+      price:
+        css: "span[data-testid='price-and-discounted-price']"
+        type: text
+      review_count:
+        css: "div[data-testid='reviews-number']"
+        type: text
+      location_snippet:
+        css: "span[data-testid='distance']"
+        type: text
+
+# Selectors for hotel details page
+detail:
+  name:
+    css: "h2[data-testid='title']"
+    type: text
+  address:
+    css: "span[data-testid='address']"
+    type: text
+  overall_review_score:
+    css: "div[data-testid='review-score-component'] div[aria-hidden='false']"
+    type: text
+  review_count:
+    css: "div[data-testid='review-score-component'] span"
+    type: text
+  star_rating:
+    css: "span[class*='bd73d']"    # may need updating
+    type: text
+  amenities:
+    css: "div[data-testid='hotel-facilities'] li"
+    type: list
+    children:
+      amenity:
+        css: "div"
+        type: text
+  room_types:
+    css: "table[class*='hprt-table'] tr"
+    type: list
+    children:
+      room_type:
+        css: "td[class*='hprt-roomtype']"
+        type: text
+  price_from:
+    css: "div[data-testid='price-and-discounted-price']"
+    type: text
+  latitude:
+    css: "meta[property='booking:location:latitude']"
+    type: attribute
+    attribute: content
+  longitude:
+    css: "meta[property='booking:location:longitude']"
+    type: attribute
+    attribute: content
